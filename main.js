@@ -77,7 +77,17 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
- 
+ if(scoreRightWrist >0.2)
+{
+fill("red");
+stroke("red");
+circle(rightWristX, rightWristY, 30);
+}
+
+if(game_status == "start")
+{
+document.getElementById("status").innerHTML = "Game Is Loaded";
+}
    //funtion paddleInCanvas call 
    paddleInCanvas();
  
@@ -201,4 +211,10 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
+}
+
+function restart()
+{
+pcscore = 0;
+loop();
 }
