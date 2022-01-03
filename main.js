@@ -41,7 +41,7 @@ function setup() {
   
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on('pose', gotPoses);
-  
+  console.log("setup loaded");
   }
   
   function modelLoaded() {
@@ -53,8 +53,8 @@ function setup() {
   if(results.lenght > 0)
   {
   console.log(results);
-  rightWristX = results[0].pose.rightWrist.x;
   rightWristY = results[0].pose.rightWrist.y;
+  rightWristX = results[0].pose.rightWrist.x;
   scoreRightWrist = results[0].pose.keypoints[10].score;
   console.log(scoreRightWrist);
   }
@@ -95,7 +95,7 @@ document.getElementById("status").innerHTML = "Game Is Loaded";
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
-   paddle1Y = mouseY; 
+   paddle1Y = rightWristY;
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
    
    
@@ -218,3 +218,4 @@ function restart()
 pcscore = 0;
 loop();
 }
+
